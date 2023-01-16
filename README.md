@@ -1,7 +1,7 @@
 # Javascript.Code.Streak
 Javascript code streak for HTML5 game development course . 
 
-Sir I unfortunately started posting on twitter for the first 4 days and from then everything is on linkdin . 
+The screenshots for first 4 days are on twitter and rest is on linkdin . 
 
 
 
