@@ -1,40 +1,101 @@
-/*During the break the schoolchildren, boys and girls, formed a queue of n people in the canteen. Initially the children stood in the order they entered the canteen. However, after a while the boys started feeling awkward for standing in front of the girls in the queue and they started letting the girls move forward each second.
-Let's describe the process more precisely. Let's say that the positions in the queue are sequentially numbered by integers from 1 to n, at that the person in the position number 1 is served first. Then, if at time x a boy stands on the i-th position and a girl stands on the (i + 1)-th position, then at time x + 1 the i-th position will have a girl and the (i + 1)-th position will have a boy. The time is given in seconds.
-You've got the initial position of the children, at the initial moment of time. Determine the way the queue is going to look after t seconds.
+/*An array a
+ is called ugly if it contains at least one element which is equal to the sum of all elements before it. If the array is not ugly, it is beautiful.
+
+For example:
+
+the array [6,3,9,6]
+ is ugly: the element 9
+ is equal to 6+3
+;
+the array [5,5,7]
+ is ugly: the element 5
+ (the second one) is equal to 5
+;
+the array [8,4,10,14]
+ is beautiful: 8≠0
+, 4≠8
+, 10≠8+4
+, 14≠8+4+10
+, so there is no element which is equal to the sum of all elements before it.
+You are given an array a
+ such that 1≤a1≤a2≤⋯≤an≤100
+. You have to reorder the elements of a
+ in such a way that the resulting array is beautiful. Note that you are not allowed to insert new elements or erase existing ones, you can only change the order of elements of a
+. You are allowed to keep the array a
+ unchanged, if it is beautiful.
+
 Input
-The first line contains two integers n and t (1 ≤ n, t ≤ 50), which represent the number of children in the queue and the time after which the queue will transform into the arrangement you need to find.
-The next line contains string s, which represents the schoolchildren's initial arrangement. If the i-th position in the queue contains a boy, then the i-th character of string s equals "B", otherwise the i-th character equals "G".
+The first line contains one integer t
+ (1≤t≤2000
+) — the number of test cases.
+
+Each test case consists of two lines. The first line contains one integer n
+ (2≤n≤50
+). The second line contains n
+ integers a1,a2,…,an
+ (1≤a1≤a2≤⋯≤an≤100
+).
+
 Output
-Print string a, which describes the arrangement after t seconds. If the i-th position has a boy after the needed time, then the i-th character a must equal "B", otherwise it must equal "G".
-Examples
-Input
-5 1
-BGGBG
-Output
-GBGGB
-Input
-5 2
-BGGBG
-Output
-GGBGB
-Input
-4 1
-GGGB
-Output
-GGGB
+For each test case, print the answer as follows:
+
+if it is impossible to reorder the elements of a
+ in such a way that it becomes beautiful, print NO;
+otherwise, in the first line, print YES. In the second line, print n
+ integers — any beautiful array which can be obtained from a
+ by reordering its elements. If there are multiple such arrays, print any of them.
+Example
+inputCopy
+4
+4
+3 3 6 6
+2
+10 10
+5
+1 2 3 4 5
+3
+1 4 4
+outputCopy
+YES
+3 6 3 6
+NO
+YES
+2 4 1 5 3
+YES
+1 4 4
 */
 
-var input = readline().split(' ')
-var x = parseInt(input[0]), t = parseInt(input[1]);
-var y = readline().split("");
-
-for (var j = 1; j <= t; j++) {
-    for (var i = 0; i < y.length; i++) {
-        if (y[i] === "B" && y[i + 1] === "G") {
-            y[i] = "G";
-            y[i + 1] = "B";
-            i++;
+var t = readline();
+var n, str, rstr, astr, nstr;
+for(var i = 0; i<t; i++){
+    n = readline();
+    str = readline();
+    astr = str.split(" ");
+    if(astr.length == 2){
+        if(astr[0] == astr[1]){
+            print("NO");
+        }
+        else{
+            print("YES");
+            print(astr[1]+ " " +astr[0]);
+            
+        }
+    }
+    else{
+        nstr=[astr[n-1]];
+        for (var j=0; j<n-1; j++)
+        {
+            nstr.push(astr[j]);
+            // print(astr[j]);
+        }
+        rstr = nstr.join(" ");
+        str = astr.join(" ");
+        if(rstr == str){
+            print('NO');
+        }
+        else{
+            print('YES');
+            print(rstr);
         }
     }
 }
-print(y.join(''));
