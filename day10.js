@@ -1,6 +1,6 @@
 /*Contestant who earns a score equal to or greater than the k-th place finisher's score will advance to the next round, as long as the contestant earns a positive score..." — an excerpt from contest rules.
 
-A total of n participants took part in the contest (n ≥ k), and you already know their scores. Calculate how many participants will advance to the next round.
+A total of n participants took part in the contest (n ≥ k), and you alreaddy know their scores. Calculate how many participants will advance to the next round.
 
 Input
 The first line of the input contains two integers n and k (1 ≤ k ≤ n ≤ 50) separated by a single space.
